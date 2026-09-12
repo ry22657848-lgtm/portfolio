@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 57% 94%;
+    --foreground: 24 33% 14%;
+    --card: 30 33% 99%;
+    --card-foreground: 24 33% 14%;
+    --popover: 30 33% 99%;
+    --popover-foreground: 24 33% 14%;
+    --primary: 20 44% 15%;
+    --primary-foreground: 36 57% 94%;
+    --secondary: 34 55% 89%;
+    --secondary-foreground: 24 33% 14%;
+    --muted: 34 55% 89%;
+    --muted-foreground: 24 12% 39%;
+    --accent: 23 46% 45%;
+    --accent-foreground: 36 57% 94%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 32 32% 80%;
+    --input: 32 32% 80%;
+    --ring: 23 46% 45%;
+    --radius: 0.75rem;
+    --font-heading: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'DM Serif Display', ui-serif, Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  ::selection {
+    background-color: #A9683F;
+    color: #FFFDFC;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+  .eyebrow-muted {
+    @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground;
+  }
+  .display-heading {
+    font-family: var(--font-display);
+    @apply text-[#302018] leading-[1.05] tracking-tight;
+  }
+  .serif-italic {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: #A9683F;
+  }
+  .card-warm {
+    background-color: #FFFDFC;
+    border: 1px solid #DDCDBB;
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(60, 35, 20, 0.07);
+  }
+  .hairline {
+    background-color: #DDCDBB;
+  }
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 0;
+    background-color: #A9683F;
+    transition: width 0.3s ease;
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+  .arch-frame {
+    border-radius: 48% 48% 8% 8% / 42% 42% 6% 6%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
